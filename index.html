@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Briefing — De Cero a Uno</title>
+    <meta name="description" content="Inteligencia regulatoria y gobernanza digital para equipos que operan en entornos complejos.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:   #0F1419;
+            --slate:  #64748B;
+            --cream:  #F8FAFC;
+            --white:  #FFFFFF;
+            --border: #E2E8F0;
+            --blue:   #2C5697;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--navy);
+            background: var(--cream);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ── Nav ──────────────────────────── */
+        nav {
+            height: 72px;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .nav-logo-mark {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .nav-brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .nav-brand-name {
+            font-family: 'Instrument Serif', serif;
+            font-size: 16px;
+            color: var(--navy);
+            letter-spacing: -0.01em;
+        }
+
+        .nav-brand-sub {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--slate);
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        nav a:hover { color: var(--navy); }
+
+        .nav-cta {
+            background: var(--navy);
+            color: white !important;
+            padding: 9px 20px;
+            border-radius: 6px;
+            font-weight: 500 !important;
+            font-size: 13px !important;
+        }
+
+        .nav-cta:hover { opacity: 0.82 !important; }
+
+        /* ── Hero ─────────────────────────── */
+        .hero {
+            padding: 160px 0 100px;
+            background: var(--white);
+            background-image: radial-gradient(ellipse 50% 55% at 85% 30%, #EEF4FF 0%, var(--white) 65%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 24px;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 1px;
+            background: var(--blue);
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 62px;
+            font-weight: 400;
+            line-height: 1.06;
+            color: var(--navy);
+            letter-spacing: -0.025em;
+            margin-bottom: 22px;
+        }
+
+        .hero-lead {
+            font-size: 18px;
+            color: var(--slate);
+            line-height: 1.65;
+            max-width: 480px;
+            margin-bottom: 16px;
+        }
+
+        .hero-meta {
+            font-size: 13px;
+            color: #94A3B8;
+            margin-bottom: 0;
+        }
+
+        /* ── Subscribe card ───────────────── */
+        .subscribe-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px 36px;
+            box-shadow: 0 8px 32px rgba(44,86,151,0.07);
+        }
+
+        .subscribe-card-eyebrow {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 10px;
+        }
+
+        .subscribe-card h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 26px;
+            font-weight: 400;
+            color: var(--navy);
+            letter-spacing: -0.015em;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .subscribe-card p {
+            font-size: 14px;
+            color: var(--slate);
+            line-height: 1.65;
+            margin-bottom: 24px;
+        }
+
+        /* ── FORM: replace the block below with your provider embed ── */
+        .subscribe-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .subscribe-form input[type="email"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--navy);
+            background: var(--cream);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .subscribe-form input[type="email"]:focus { border-color: var(--blue); }
+        .subscribe-form input[type="email"]::placeholder { color: #C0CDD8; }
+
+        .subscribe-form button {
+            width: 100%;
+            padding: 13px;
+            background: var(--navy);
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .subscribe-form button:hover { opacity: 0.82; }
+
+        .form-note {
+            font-size: 12px;
+            color: #94A3B8;
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        /* ── Stats strip ──────────────────── */
+        .stats-strip {
+            background: var(--navy);
+            padding: 44px 0;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-num {
+            font-family: 'Instrument Serif', serif;
+            font-size: 36px;
+            color: white;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-lbl {
+            font-size: 12px;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.4;
+        }
+
+        .stat-sep {
+            width: 1px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* ── Issues ───────────────────────── */
+        .issues {
+            padding: 96px 0;
+            background: var(--cream);
+        }
+
+        .section-eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--slate);
+            margin-bottom: 16px;
+        }
+
+        .issues-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+        }
+
+        .issues-header h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .issues-lead {
+            font-size: 16px;
+            color: var(--slate);
+            max-width: 380px;
+            line-height: 1.6;
+            text-align: right;
+        }
+
+        /* Latest issue — featured */
+        .issue-featured {
+            background: var(--navy);
+            border-radius: 16px;
+            padding: 48px 52px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .issue-number {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 10px;
+        }
+
+        .issue-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 34px;
+            color: white;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .issue-date {
+            font-size: 12px;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 18px;
+        }
+
+        .issue-summary {
+            font-size: 15px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+            max-width: 52ch;
+        }
+
+        .issue-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .tag {
+            font-size: 11px;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.04em;
+        }
+
+        .issue-cta-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .btn-issue {
+            display: block;
+            background: white;
+            color: var(--navy);
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: opacity 0.2s, transform 0.15s;
+            letter-spacing: -0.01em;
+        }
+
+        .btn-issue:hover { opacity: 0.88; transform: translateY(-2px); }
+
+        .btn-issue-note {
+            font-size: 11px;
+            color: rgba(255,255,255,0.28);
+            text-align: center;
+        }
+
+        /* Issue grid */
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .issue-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 26px;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .issue-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(44,86,151,0.09);
+            border-color: #C8D9F0;
+        }
+
+        .issue-card-num {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 6px;
+        }
+
+        .issue-card-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 20px;
+            color: var(--navy);
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            margin-bottom: 10px;
+        }
+
+        .issue-card-excerpt {
+            font-size: 13px;
+            color: var(--slate);
+            line-height: 1.65;
+            flex: 1;
+            margin-bottom: 16px;
+        }
+
+        .issue-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #94A3B8;
+            border-top: 1px solid var(--border);
+            padding-top: 14px;
+            margin-top: auto;
+        }
+
+        .issue-card-link {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--blue);
+        }
+
+        /* Empty state */
+        .issues-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 0;
+            color: var(--slate);
+        }
+
+        .issues-empty p { font-size: 15px; line-height: 1.65; }
+
+        /* ── What to expect ───────────────── */
+        .about-newsletter {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 96px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-editorial h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .about-editorial p {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-editorial p:last-child { margin-bottom: 0; }
+
+        .topics-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .topic-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 16px 18px;
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .topic-icon {
+            font-size: 18px;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .topic-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 3px;
+            letter-spacing: -0.01em;
+        }
+
+        .topic-desc {
+            font-size: 13px;
+            color: var(--slate);
+            line-height: 1.55;
+        }
+
+        /* ── Footer ───────────────────────── */
+        footer {
+            background: var(--navy);
+            padding: 56px 0 36px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand-name {
+            font-family: 'Instrument Serif', serif;
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 6px;
+        }
+
+        .footer-brand-sub {
+            font-size: 12px;
+            color: rgba(255,255,255,0.35);
+            line-height: 1.6;
+            max-width: 240px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 48px;
+        }
+
+        .footer-col h5 {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            margin-bottom: 14px;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 8px; }
+
+        .footer-col a {
+            text-decoration: none;
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover { color: white; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(255,255,255,0.28);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <div class="container">
+            <a href="https://deceroauno.com" class="nav-brand">
+                <!-- SVG inline del logo mark CI -->
+                <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="6" fill="#0F1419"/>
+                    <circle cx="13" cy="16" r="8" fill="none" stroke="white" stroke-width="5.5"
+                        stroke-dasharray="36 14" stroke-dashoffset="-7"/>
+                    <rect x="21" y="7" width="3" height="18" rx="1" fill="#3568B5"/>
+                </svg>
+                <div class="nav-brand-text">
+                    <span class="nav-brand-name">De Cero a Uno</span>
+                    <span class="nav-brand-sub">El Briefing</span>
+                </div>
+            </a>
+            <ul>
+                <li><a href="#issues">Ediciones</a></li>
+                <li><a href="#about">Qué esperar</a></li>
+                <li><a href="https://deceroauno.com#contacto">Contacto</a></li>
+                <li><a href="#subscribe" class="nav-cta">Suscribirse →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-layout">
+                <div>
+                    <div class="hero-eyebrow">De Cero a Uno · Lab</div>
+                    <h1>El Briefing</h1>
+                    <p class="hero-lead">Inteligencia regulatoria y gobernanza digital para equipos que operan en entornos complejos. Sin ruido, sin simplificaciones.</p>
+                    <p class="hero-meta">Publicación quincenal · Gratuito · Sin spam</p>
+                </div>
+
+                <!-- Subscribe card -->
+                <div class="subscribe-card" id="subscribe">
+                    <div class="subscribe-card-eyebrow">Suscribirse</div>
+                    <h2>Una lectura que vale la pena</h2>
+                    <p>Análisis de regulación, casos prácticos y lo que realmente importa en digital trust.</p>
+
+                    <!--
+                    ════════════════════════════════════════════════
+                    INTEGRACIÓN DE NEWSLETTER
+                    Reemplaza este formulario con el embed de tu
+                    proveedor: Mailchimp, ConvertKit, Buttondown,
+                    Beehiiv, etc.
+                    ════════════════════════════════════════════════
+                    -->
+                    <form class="subscribe-form" id="subscribeForm">
+                        <input type="email" placeholder="tu@email.com" required>
+                        <button type="submit">Suscribirme →</button>
+                    </form>
+                    <p class="form-note">Sin spam. Baja cuando quieras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats strip -->
+    <div class="stats-strip">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-num">Quincenal</div>
+                    <div class="stat-lbl">Frecuencia de publicación</div>
+                </div>
+                <div class="stat-sep"></div>
+                <div class="stat-item">
+                    <div class="stat-num">~8 min</div>
+                    <div class="stat-lbl">Tiempo de lectura promedio</div>
+                </div>
+                <div class="stat-sep"></div>
+                <div class="stat-item">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-lbl">Sin publicidad ni sponsors</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Issues archive -->
+    <section class="issues" id="issues">
+        <div class="container">
+            <div class="issues-header">
+                <div>
+                    <div class="section-eyebrow">Archivo</div>
+                    <h2>Ediciones anteriores</h2>
+                </div>
+                <p class="issues-lead">Cada edición es un análisis concreto sobre regulación, gobernanza y decisiones digitales.</p>
+            </div>
+
+            <!-- FEATURED ISSUE — duplica este bloque para cada edición destacada -->
+            <div class="issue-featured">
+                <div>
+                    <div class="issue-number">N.º 001 · Primera edición</div>
+                    <div class="issue-title">Próximamente</div>
+                    <div class="issue-date">— · 2026</div>
+                    <p class="issue-summary">La primera edición de El Briefing está en preparación. Suscríbete para recibirla directamente en tu correo cuando salga.</p>
+                    <div class="issue-tags">
+                        <span class="tag">Regulación</span>
+                        <span class="tag">Gobernanza</span>
+                        <span class="tag">Digital Trust</span>
+                    </div>
+                </div>
+                <div class="issue-cta-col">
+                    <a href="#subscribe" class="btn-issue">Suscribirse →</a>
+                    <div class="btn-issue-note">Recíbela cuando salga</div>
+                </div>
+            </div>
+
+            <!-- ISSUE GRID — agrega más tarjetas aquí -->
+            <div class="issues-grid">
+                <div class="issues-empty">
+                    <p>Las ediciones aparecerán aquí a medida que se publiquen.<br>
+                    Suscríbete arriba para no perderte ninguna.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- What to expect -->
+    <section class="about-newsletter" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-editorial">
+                    <div class="section-eyebrow">Qué esperar</div>
+                    <h2>Análisis que<br>se puede usar</h2>
+                    <p>El Briefing no es un resumen de noticias. Es una lectura quincenal que toma un tema relevante en regulación o gobernanza digital y lo trabaja con profundidad suficiente para tomar decisiones.</p>
+                    <p>Dirigido a equipos legales, de compliance, directores de tecnología y líderes que necesitan entender el entorno regulatorio sin perderse en el ruido.</p>
+                </div>
+                <ul class="topics-list">
+                    <li class="topic-item">
+                        <span class="topic-icon">⚖️</span>
+                        <div>
+                            <div class="topic-name">Regulación & Compliance</div>
+                            <div class="topic-desc">Nuevas leyes, cambios regulatorios y lo que implican para tu organización en América Latina y Europa.</div>
+                        </div>
+                    </li>
+                    <li class="topic-item">
+                        <span class="topic-icon">🏛️</span>
+                        <div>
+                            <div class="topic-name">Gobernanza Digital</div>
+                            <div class="topic-desc">Modelos operativos, estructuras de accountability y decisiones de arquitectura organizacional.</div>
+                        </div>
+                    </li>
+                    <li class="topic-item">
+                        <span class="topic-icon">🔐</span>
+                        <div>
+                            <div class="topic-name">Privacy & Seguridad</div>
+                            <div class="topic-desc">Casos reales, incidentes relevantes y lecciones aplicables para equipos técnicos y ejecutivos.</div>
+                        </div>
+                    </li>
+                    <li class="topic-item">
+                        <span class="topic-icon">📊</span>
+                        <div>
+                            <div class="topic-name">Strategy & Trust</div>
+                            <div class="topic-desc">Cómo el digital trust se convierte en ventaja competitiva y cómo comunicarlo al directorio.</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-brand-name">De Cero a Uno</div>
+                    <div class="footer-brand-sub">Digital Trust Advisory · El Briefing es la publicación de inteligencia regulatoria de De Cero a Uno.</div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h5>Navegación</h5>
+                        <ul>
+                            <li><a href="#issues">Ediciones</a></li>
+                            <li><a href="#about">Qué esperar</a></li>
+                            <li><a href="#subscribe">Suscribirse</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>De Cero a Uno</h5>
+                        <ul>
+                            <li><a href="https://deceroauno.com">Inicio</a></li>
+                            <li><a href="https://deceroauno.com#servicios">Servicios</a></li>
+                            <li><a href="https://deceroauno.com#contacto">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 De Cero a Uno. Todos los derechos reservados.</span>
+                <span>El Briefing · Publicación quincenal</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+            a.addEventListener('click', function(e) {
+                var target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Form placeholder — reemplazar con el handler de tu proveedor
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = this.querySelector('button');
+            btn.textContent = '¡Listo! Te avisamos cuando salga →';
+            btn.style.background = '#059669';
+            btn.disabled = true;
+        });
+    </script>
+</body>
+</html>

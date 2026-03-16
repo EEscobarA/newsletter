@@ -1,0 +1,20 @@
+title: "El Briefing — De Cero a Uno"
+description: "Inteligencia regulatoria y gobernanza digital para equipos que operan en entornos complejos."
+url: ""
+baseurl: ""
+lang: es
+
+# Build
+markdown: kramdown
+permalink: /issues/:year/:slug/
+
+# Plugins (GitHub Pages compatible)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
