@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N.º 001 — Semana del 16 Mar – 22 Mar 2026 · El Briefing</title>
+    <meta name="description" content="Digest semanal de regulación digital y gobernanza. Semana del 16 Mar – 22 Mar 2026.">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --navy:#0F1419; --slate:#64748B; --cream:#F8FAFC;
+            --white:#FFFFFF; --border:#E2E8F0; --blue:#2C5697;
+        }
+        body { font-family:'Inter',sans-serif; line-height:1.6; color:var(--navy); background:var(--cream); -webkit-font-smoothing:antialiased; }
+        .container { max-width:720px; margin:0 auto; padding:0 40px; }
+
+        nav { height:64px; position:fixed; top:0; left:0; right:0; background:rgba(255,255,255,0.96); backdrop-filter:blur(10px); z-index:1000; border-bottom:1px solid var(--border); }
+        nav .inner { max-width:1100px; margin:0 auto; padding:0 40px; display:flex; justify-content:space-between; align-items:center; height:100%; }
+        nav a { text-decoration:none; color:var(--slate); font-size:14px; transition:color 0.2s; }
+        nav a:hover { color:var(--navy); }
+        .nav-back { display:flex; align-items:center; gap:8px; font-size:13px; }
+        .nav-back::before { content:'←'; }
+        .nav-issue { font-size:12px; color:#94A3B8; }
+
+        .issue-header { padding:108px 0 52px; background:var(--white); border-bottom:1px solid var(--border); }
+        .issue-meta { display:flex; align-items:center; gap:10px; font-size:12px; color:var(--slate); margin-bottom:20px; flex-wrap:wrap; }
+        .issue-num { font-weight:600; color:var(--blue); letter-spacing:0.06em; text-transform:uppercase; }
+        .issue-sep { color:var(--border); }
+        h1 { font-family:'Instrument Serif',serif; font-size:48px; font-weight:400; line-height:1.06; letter-spacing:-0.025em; color:var(--navy); margin-bottom:16px; }
+        .issue-subtitle { font-size:19px; color:var(--slate); line-height:1.55; font-weight:400; margin-bottom:24px; }
+        .issue-tags { display:flex; gap:8px; flex-wrap:wrap; }
+        .tag { font-size:11px; font-weight:500; padding:4px 12px; border-radius:10px; background:#EEF4FF; color:var(--blue); }
+
+        .issue-content { padding:60px 0 80px; background:var(--white); }
+
+        .region-section { margin-bottom:48px; }
+        .region-label { font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+
+        .news-item { padding:20px 0; border-bottom:1px solid var(--border); }
+        .news-item:last-child { border-bottom:none; }
+        .news-title { font-size:17px; font-weight:600; color:var(--navy); text-decoration:none; letter-spacing:-0.01em; line-height:1.4; display:block; margin-bottom:8px; transition:color 0.2s; }
+        .news-title:hover { color:var(--blue); }
+        .news-summary { font-size:14px; color:var(--slate); line-height:1.7; margin-bottom:10px; }
+        .news-meta { display:flex; justify-content:space-between; align-items:center; }
+        .news-source { font-size:12px; color:#94A3B8; }
+        .news-link { font-size:12px; font-weight:500; color:var(--blue); text-decoration:none; transition:opacity 0.2s; }
+        .news-link:hover { opacity:0.7; }
+
+        .section-label { font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); margin-bottom:28px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+        .section-label-archive { margin-top:0; }
+
+        .editorial-section { margin-bottom:48px; }
+        .editorial-list { display:flex; flex-direction:column; gap:0; }
+        .editorial-item { display:flex; gap:20px; padding:24px 0; border-bottom:1px solid var(--border); }
+        .editorial-item:last-child { border-bottom:none; }
+        .editorial-rank { flex-shrink:0; width:32px; height:32px; border-radius:50%; background:#EEF4FF; color:var(--blue); font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; margin-top:2px; }
+        .editorial-body { flex:1; min-width:0; }
+        .editorial-title { font-size:17px; font-weight:600; color:var(--navy); text-decoration:none; letter-spacing:-0.01em; line-height:1.4; display:block; margin-bottom:10px; transition:color 0.2s; }
+        .editorial-title:hover { color:var(--blue); }
+        .editorial-why { font-size:14px; color:#334155; line-height:1.72; margin-bottom:12px; padding:12px 14px; background:#F8FAFF; border-left:3px solid var(--blue); border-radius:0 6px 6px 0; }
+        .editorial-meta { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+        .editorial-source { font-size:12px; color:#94A3B8; }
+        .editorial-region { font-size:11px; font-weight:500; padding:3px 9px; border-radius:8px; background:#EEF4FF; color:var(--blue); }
+        .editorial-link { font-size:12px; font-weight:500; color:var(--blue); text-decoration:none; margin-left:auto; transition:opacity 0.2s; }
+        .editorial-link:hover { opacity:0.7; }
+
+        .divider { height:1px; background:var(--border); margin:40px 0; }
+
+        .subscribe-cta { background:var(--navy); border-radius:14px; padding:40px 44px; text-align:center; margin:56px 0; }
+        .subscribe-cta h3 { font-family:'Instrument Serif',serif; font-size:26px; color:white; margin-bottom:10px; font-weight:400; }
+        .subscribe-cta p { font-size:15px; color:rgba(255,255,255,0.55); margin-bottom:20px; }
+        .sub-inline { display:flex; gap:8px; max-width:380px; margin:0 auto; }
+        .sub-inline input { flex:1; padding:11px 14px; border:1px solid rgba(255,255,255,0.2); border-radius:7px; background:rgba(255,255,255,0.08); color:white; font-family:'Inter',sans-serif; font-size:14px; outline:none; }
+        .sub-inline input::placeholder { color:rgba(255,255,255,0.3); }
+        .sub-inline input:focus { border-color:rgba(255,255,255,0.4); }
+        .sub-inline button { padding:11px 20px; background:white; color:var(--navy); border:none; border-radius:7px; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap; transition:opacity 0.2s; }
+        .sub-inline button:hover { opacity:0.88; }
+
+        footer { background:var(--navy); padding:40px; }
+        .footer-bottom { display:flex; justify-content:space-between; font-size:12px; color:rgba(255,255,255,0.28); max-width:1100px; margin:0 auto; }
+        .footer-bottom a { color:rgba(255,255,255,0.4); text-decoration:none; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="inner">
+            <a href="../index.html" class="nav-back">El Briefing</a>
+            <span class="nav-issue">N.º 001 · 2026-03-16</span>
+        </div>
+    </nav>
+
+    <header class="issue-header">
+        <div class="container">
+            <div class="issue-meta">
+                <span class="issue-num">N.º 001</span>
+                <span class="issue-sep">·</span>
+                <span>Semana del 16 Mar – 22 Mar 2026</span>
+                <span class="issue-sep">·</span>
+                <span>11 novedades</span>
+            </div>
+            <h1>Digest semanal</h1>
+            <p class="issue-subtitle">Regulación digital y gobernanza — semana del 16 Mar – 22 Mar 2026.</p>
+            <div class="issue-tags"><span class="tag">CMF</span><span class="tag">Chile</span><span class="tag">Digital Trust</span><span class="tag">EDPB</span><span class="tag">Europa</span><span class="tag">GDPR</span><span class="tag">Internacional</span><span class="tag">LPDP</span></div>
+        </div>
+    </header>
+
+    <article class="issue-content">
+        <div class="container">
+            
+        <div class="editorial-section">
+            <div class="section-label">⭐ Lo más importante esta semana</div>
+            <div class="editorial-list">
+                
+            <div class="editorial-item">
+                <div class="editorial-rank">1</div>
+                <div class="editorial-body">
+                    <a href="https://anci.gob.cl/noticias/anci-cisa-embajada-eeuu/" class="editorial-title" target="_blank" rel="noopener noreferrer">ANCI participa de Entrenamiento Bicentenario de CISA en la embajada de EE.UU.</a>
+                    
+                    <div class="editorial-meta">
+                        <span class="editorial-source">ANCI</span>
+                        <span class="editorial-region">🇨🇱 Chile</span>
+                        <a href="https://anci.gob.cl/noticias/anci-cisa-embajada-eeuu/" class="editorial-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="editorial-item">
+                <div class="editorial-rank">2</div>
+                <div class="editorial-body">
+                    <a href="https://www.cmfchile.cl/w3-article-108574.html" class="editorial-title" target="_blank" rel="noopener noreferrer">CMF publica en consulta ajustes normativos en la determinación de los Activos Ponderados por Riesgo de Mercado</a>
+                    
+                    <div class="editorial-meta">
+                        <span class="editorial-source">CMF Chile</span>
+                        <span class="editorial-region">🇨🇱 Chile</span>
+                        <a href="https://www.cmfchile.cl/w3-article-108574.html" class="editorial-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="editorial-item">
+                <div class="editorial-rank">3</div>
+                <div class="editorial-body">
+                    <a href="https://www.sernac.cl/w3-article-88332.html" class="editorial-title" target="_blank" rel="noopener noreferrer">Metropolitana: SERNAC desarrolla operativo en terreno en San Joaquín</a>
+                    
+                    <div class="editorial-meta">
+                        <span class="editorial-source">SERNAC</span>
+                        <span class="editorial-region">🇨🇱 Chile</span>
+                        <a href="https://www.sernac.cl/w3-article-88332.html" class="editorial-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="editorial-item">
+                <div class="editorial-rank">4</div>
+                <div class="editorial-body">
+                    <a href="https://www.camara.cl/cms/2026/03/10/instalacion-de-la-camara-se-desarrollara-manana-en-el-congreso-nacional/" class="editorial-title" target="_blank" rel="noopener noreferrer">Instalación de la Cámara se desarrollará mañana en el Congreso Nacional</a>
+                    
+                    <div class="editorial-meta">
+                        <span class="editorial-source">Cámara de Diputados</span>
+                        <span class="editorial-region">🇨🇱 Chile</span>
+                        <a href="https://www.camara.cl/cms/2026/03/10/instalacion-de-la-camara-se-desarrollara-manana-en-el-congreso-nacional/" class="editorial-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="editorial-item">
+                <div class="editorial-rank">5</div>
+                <div class="editorial-body">
+                    <a href="https://chocale.cl/2026/03/concesionaria-del-aeropuerto-de-punta-arenas-demanda-reequilibrio-al-estado/" class="editorial-title" target="_blank" rel="noopener noreferrer">Concesionaria del aeropuerto de Punta Arenas demanda reequilibrio al Estado</a>
+                    
+                    <div class="editorial-meta">
+                        <span class="editorial-source">Chócale</span>
+                        <span class="editorial-region">🇨🇱 Chile</span>
+                        <a href="https://chocale.cl/2026/03/concesionaria-del-aeropuerto-de-punta-arenas-demanda-reequilibrio-al-estado/" class="editorial-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="section-label section-label-archive">Todas las novedades</div>
+            
+        <div class="region-section">
+            <div class="region-label">🇨🇱 Chile</div>
+            
+            <div class="news-item">
+                <a href="https://anci.gob.cl/noticias/anci-cisa-embajada-eeuu/" class="news-title" target="_blank" rel="noopener noreferrer">ANCI participa de Entrenamiento Bicentenario de CISA en la embajada de EE.UU.</a>
+                
+                <div class="news-meta">
+                    <span class="news-source">ANCI</span>
+                    <a href="https://anci.gob.cl/noticias/anci-cisa-embajada-eeuu/" class="news-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <a href="https://www.cmfchile.cl/w3-article-108574.html" class="news-title" target="_blank" rel="noopener noreferrer">CMF publica en consulta ajustes normativos en la determinación de los Activos Ponderados por Riesgo de Mercado</a>
+                <p class="news-summary">05-mar-2026</p>
+                <div class="news-meta">
+                    <span class="news-source">CMF Chile</span>
+                    <a href="https://www.cmfchile.cl/w3-article-108574.html" class="news-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <a href="https://www.sernac.cl/w3-article-88332.html" class="news-title" target="_blank" rel="noopener noreferrer">Metropolitana: SERNAC desarrolla operativo en terreno en San Joaquín</a>
+                <p class="news-summary">11 de marzo de 2026</p>
+                <div class="news-meta">
+                    <span class="news-source">SERNAC</span>
+                    <a href="https://www.sernac.cl/w3-article-88332.html" class="news-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <a href="https://www.camara.cl/cms/2026/03/10/instalacion-de-la-camara-se-desarrollara-manana-en-el-congreso-nacional/" class="news-title" target="_blank" rel="noopener noreferrer">Instalación de la Cámara se desarrollará mañana en el Congreso Nacional</a>
+                <p class="news-summary">A partir de las 09:00 hrs., las y los diputados que asumirán para el periodo 2026 – 2030 jurarán y se efectuará la elección de la Mesa de la Corporación. Al mediodía, el Presidente Gabriel Boric, ante el Congreso Pleno,…</p>
+                <div class="news-meta">
+                    <span class="news-source">Cámara de Diputados</span>
+                    <a href="https://www.camara.cl/cms/2026/03/10/instalacion-de-la-camara-se-desarrollara-manana-en-el-congreso-nacional/" class="news-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <a href="https://chocale.cl/2026/03/concesionaria-del-aeropuerto-de-punta-arenas-demanda-reequilibrio-al-estado/" class="news-title" target="_blank" rel="noopener noreferrer">Concesionaria del aeropuerto de Punta Arenas demanda reequilibrio al Estado</a>
+                <p class="news-summary">Red Aeroportuaria Austral llevó al Panel Técnico de Concesiones una disputa por el desvío de pasajeros hacia Puerto Natales y el impacto del Covid-19.</p>
+                <div class="news-meta">
+                    <span class="news-source">Chócale</span>
+                    <a href="https://chocale.cl/2026/03/concesionaria-del-aeropuerto-de-punta-arenas-demanda-reequilibrio-al-estado/" class="news-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                </div>
+            </div>
+        </div>
+        <div class="region-section">
+            <div class="region-label">🇪🇺 Europa</div>
+            
+            <div class="news-item">
+                <a href="http://www.euronews.com/my-europe/2025/11/27/eu-countries-reach-long-awaited-deal-on-online-child-abuse-detection" class="news-title" target="_blank" rel="noopener noreferrer">EU countries reach long-awaited deal on online child abuse detection</a>
+                <p class="news-summary">Member states have agreed on a deal to fight child abuse online by pushing platforms to remove illegal content, though mandatory scanning of private messages was dropped.</p>
+                <div class="news-meta">
+                    <span class="news-source">Euronews Data Protection</span>
+                    <a href="http://www.euronews.com/my-europe/2025/11/27/eu-countries-reach-long-awaited-deal-on-online-child-abuse-detection" class="news-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <a href="http://www.euronews.com/next/2025/09/24/tiktok-should-do-more-to-keep-children-off-the-platform-canadas-privacy-watchdog-says" class="news-title" target="_blank" rel="noopener noreferrer">TikTok should do more to keep children off the platform, Canada's privacy watchdog says</a>
+                <p class="news-summary">Canada's privacy watchdog called for TikTok to enhance protection for children on the social video platform.</p>
+                <div class="news-meta">
+                    <span class="news-source">Euronews Privacy</span>
+                    <a href="http://www.euronews.com/next/2025/09/24/tiktok-should-do-more-to-keep-children-off-the-platform-canadas-privacy-watchdog-says" class="news-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                </div>
+            </div>
+        </div>
+        <div class="region-section">
+            <div class="region-label">🌍 Internacional</div>
+            
+            <div class="news-item">
+                <a href="https://www.biometricupdate.com/202603/consultation-questions-companies-house-incident-highlight-uk-idv-industrys-fears" class="news-title" target="_blank" rel="noopener noreferrer">Consultation questions, Companies House incident highlight UK IDV industry’s fears</a>
+                <p class="news-summary">The consultation the UK government is holding to inform how it builds the national digital identity system raises important questions about the role of private Digital Verification Service (DVS) providers. But neither…</p>
+                <div class="news-meta">
+                    <span class="news-source">Biometrics Update</span>
+                    <a href="https://www.biometricupdate.com/202603/consultation-questions-companies-house-incident-highlight-uk-idv-industrys-fears" class="news-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <a href="https://dig.watch/updates/ai-network-management-bts-concert" class="news-title" target="_blank" rel="noopener noreferrer">AI network management systems deployed for BTS concert in Seoul</a>
+                <p class="news-summary">Telecom operators showcase AI network management technology at BTS concert in Seoul.</p>
+                <div class="news-meta">
+                    <span class="news-source">Dig.Watch Cybersecurity</span>
+                    <a href="https://dig.watch/updates/ai-network-management-bts-concert" class="news-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <a href="https://www.ft.com/content/fc1e7e9a-9d5d-4217-b9b2-38069eb1197b" class="news-title" target="_blank" rel="noopener noreferrer">‘Mr AI’ Peter Thiel lectures about antichrist in Rome</a>
+                
+                <div class="news-meta">
+                    <span class="news-source">Financial Times Tech</span>
+                    <a href="https://www.ft.com/content/fc1e7e9a-9d5d-4217-b9b2-38069eb1197b" class="news-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <a href="https://techpolicy.press/how-ice-will-spy-on-protesters-and-how-you-can-protect-your-privacy" class="news-title" target="_blank" rel="noopener noreferrer">How ICE Will Spy On Protesters, And How You Can Protect Your Privacy</a>
+                
+                <div class="news-meta">
+                    <span class="news-source">Tech Policy Press</span>
+                    <a href="https://techpolicy.press/how-ice-will-spy-on-protesters-and-how-you-can-protect-your-privacy" class="news-link" target="_blank" rel="noopener noreferrer">Leer →</a>
+                </div>
+            </div>
+        </div>
+            <div class="divider"></div>
+            <div class="subscribe-cta">
+                <h3>¿Te fue útil esta edición?</h3>
+                <p>Recibe el próximo digest directamente en tu correo.</p>
+                <div class="sub-inline">
+                    <input type="email" placeholder="tu@email.com">
+                    <button onclick="this.textContent='¡Listo!';this.style.background='#ECFDF5';this.style.color='#059669';this.disabled=true;">Suscribirme →</button>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <div class="footer-bottom">
+            <span>© 2026 De Cero a Uno · El Briefing</span>
+            <a href="../index.html">← Volver al archivo</a>
+        </div>
+    </footer>
+</body>
+</html>
